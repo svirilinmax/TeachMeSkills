@@ -21,4 +21,5 @@ def unicorns_to_rainbows(unicorns: list[dict]) -> list[str]:
         unicorns_list.append(f"🌈 Rainbow unicorn of color {i["color"]}")
     return unicorns_list
 
-    print(unicorns_to_rainbows(unicorns))
+
+print(unicorns_to_rainbows(unicorns))
