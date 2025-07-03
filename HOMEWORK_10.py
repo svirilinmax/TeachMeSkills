@@ -8,8 +8,6 @@
 #
 # Пример:
 unicorns = [{"color": "pink"}, {"color": "blue"}, {"color": "sparkly"}, {"color": "red"}]
-unicorns.append()
-
 # результат:
 # [
 #   "🌈 Rainbow unicorn of color pink",
