@@ -7,8 +7,8 @@
 # "🌈 Rainbow unicorn of color COLOR", где COLOR — цвет единорога.
 #
 # Пример:
-unicorns = [{"color": "pink"}, {"color": "blue"}, {"color": "sparkly"}]
-unicorns.append({"color": "red"})
+unicorns = [{"color": "pink"}, {"color": "blue"}, {"color": "sparkly"}, {"color": "red"}]
+unicorns.append()
 
 # результат:
 # [
