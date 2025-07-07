@@ -18,7 +18,7 @@ class Soda:
     def __str__(self):
         # TODO: реализовать строковое представление
         if self.flavor is None:
-            return f"У вас обычная газировка"
+            return "У вас обычная газировка"
         return f"У вас газировка с {self.flavor} вкусом"
 
 
