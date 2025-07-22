@@ -42,11 +42,11 @@ WHERE HireDate IS NULL;
 
 -- ✅ TODO 6: Найдите всех сотрудников с должностью "Manager"
 SELECT * FROM Employees
-WHERE Position LIKE '%Manager%';
+WHERE Position = 'Manager';
 
 -- ✅ TODO 7: Найдите всех сотрудников с зарплатой больше 5000
 SELECT * FROM Employees
-WHERE Salary >= 50000.00;
+WHERE Salary >= 5000.00;
 
 -- ✅ TODO 8: Найдите всех сотрудников, которые работают в отделе "Sales"
 SELECT * FROM Employees
@@ -61,7 +61,7 @@ FROM Employees;
 
 
 -- ✅ TODO 10: Удалите таблицу "Employees"
--- ✅ TODO DROP TABLE Employees
+DROP TABLE Employees
 
 -- 🎯 *Задание с повышенным уровнем сложности:*
 -- Реализуйте задачи 6–9 в виде ХРАНИМЫХ ФУНКЦИЙ или ПРОЦЕДУР.
@@ -104,7 +104,7 @@ CALL GetSales();
 
 
 -- ✅ TODO 9: Найдите среднюю зарплату всех сотрудников
-CREATE PROCEDURE GetAVG()
+CREATE PROCEDURE GetSalaryStats()
 BEGIN
     SELECT
     AVG(Salary) AS AvgSalary,
@@ -113,5 +113,12 @@ BEGIN
 FROM Employees;
 END
 
-CALL GetAVG();
+CALL GetSalaryStats();
 
+
+✅ Удалить процедуры в конце (чтобы не «засорять» БД):
+
+DROP PROCEDURE IF EXISTS GetManagers;
+DROP PROCEDURE IF EXISTS GetHighSalary;
+DROP PROCEDURE IF EXISTS GetSales;
+DROP PROCEDURE IF EXISTS GetSalaryStats;
