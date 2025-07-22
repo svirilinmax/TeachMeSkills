@@ -19,7 +19,7 @@ CREATE TABLE Books(
     title VARCHAR(255) NOT NULL,
     author_id INT,
     publication_year INT,
-    FOREIGN KEY (author_id) REFERENCES Authors(id)
+    FOREIGN KEY (author_id) REFERENCES Authors(id) ON DELETE CASCADE
 );
 
 -- TODO: Создайте таблицу sales с полями id, book_id, quantity
@@ -28,7 +28,7 @@ CREATE TABLE Sales(
     id INT PRIMARY KEY,
     book_id INT,
     quantity INT DEFAULT 0 NOT NULL,
-    FOREIGN KEY (book_id) REFERENCES Books(id)
+    FOREIGN KEY (book_id) REFERENCES Books(id) ON DELETE CASCADE
 );
 
 -- Вставить данные:
@@ -50,7 +50,7 @@ VALUES
     (2, 'Преступление и наказание', 2, 1866),
     (3, 'Вишнёвый сад', 3, 1904),
     (4, 'Мёртвые души', 4, 1842),
-	(5, '[нет книги]', 5, 2025);
+	(5, '[нет книги]', 5, 2025);    -- Для демонстрации автора без нормальной книги
 
 
 -- TODO: Добавьте записи о продажах книг в таблицу sales
@@ -165,7 +165,7 @@ FROM (
 ) AS author_sales
 ORDER BY 
     author_sales.total_sales DESC
-LIMIT 1;
+FETCH FIRST 1 ROWS WITH TIES;
 
 -- TODO: Найдите книги, которые были проданы в количестве, превышающем среднее количество продаж всех книг,
 -- 		используя подзапросы и JOIN
@@ -181,6 +181,6 @@ WHERE Sales.quantity > (
 )
 ORDER BY 
     Sales.quantity DESC;
-	
+
 
 -- 🚀 Удачи! Не бойтесь пробовать разные JOIN и GROUP BY, чтобы лучше понять, как они работают!
