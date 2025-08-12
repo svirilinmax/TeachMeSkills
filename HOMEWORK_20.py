@@ -50,7 +50,7 @@ def index():
     return render_template('wishes.html', wishes=wishes)
 
 
-@app.route('/delete/<int:wish_id>')
+@app.route('/delete/<int:wish_id>', methods=['POST'])
 def delete_wish(wish_id):
     conn = get_connection()
     cur = conn.cursor()

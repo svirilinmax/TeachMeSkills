@@ -266,9 +266,11 @@
                             <span class="wish-date">{{ wish[3].strftime('%d.%m.%Y %H:%M') }}</span>
                         </div>
                         <p class="wish-message">{{ wish[2] }}</p>
-                        <button class="delete-btn" onclick="if(confirm('Удалить это пожелание?')) location.href='/delete/{{ wish[0] }}'">
-                            ×
-                        </button>
+                        <form action="/delete/{{ wish[0] }}" method="POST" style="display: inline;">
+                            <button type="submit" class="delete-btn" onclick="return confirm('Удалить это пожелание?')">
+                        ×
+                            </button>
+                        </form>
                     </div>
                 {% endfor %}
             {% else %}
