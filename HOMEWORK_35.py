@@ -47,9 +47,26 @@ def heavy_math(x: int) -> int:
     TODO: Реализовать "тяжёлую" математическую задачу.
     Например: рекурсивный fib(n), факториал через цикл и т.п.
     """
+
+    def factorial(n: int) -> int:
+        result = 1
+        for i in range(1, n + 1):
+            result *= i
+        return result
+
     if x <= 1:
-        return x
-    return heavy_math(x - 1) + heavy_math(x - 2)
+        return 1
+
+    a = heavy_math(x - 1)
+    b = heavy_math(x - 2)
+
+    combined = (a + b) % 8 + 2
+    result = factorial(combined)
+
+    for _ in range(10):
+        result = (result * 6_364_136_223_846_793_005) % 1_000_000_007
+
+    return result
 
 
 # ---------------------------
